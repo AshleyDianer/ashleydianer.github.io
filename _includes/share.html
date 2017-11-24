@@ -1,26 +1,9 @@
-<div class="post-share text-center">
-    <p class="light small">
-        Share this post
-    </p>
-    <ul class="social-mini">
-        <li>
-            <a href="https://twitter.com/intent/tweet?text={{ page.title | cgi_escape }}%20{{ page.url }}%20via%20&#64;{{ site.author.twitter }}"
-                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip"
-                title="Share on Twitter" itemprop="Twitter">
-                <i class="fa fa-twitter"></i>
-            </a>
-        </li>
-        <li>
-            <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url }}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"
-                data-toggle="tooltip" title="Share on Facebook" itemprop="Facebook">
-                <i class="fa fa-facebook"></i>
-            </a>
-        </li>
-        <li>
-            <a href="https://plus.google.com/share?url={{ page.url }}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"
-                data-toggle="tooltip" title="Share on Google plus" itemprop="GooglePlus">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-    </ul>
+<!-- {% if page.share != false %}
+<div style="margin-top:30px">
+    <a href="https://twitter.com/intent/tweet?text={{ site.url }}{{ page.url }}" class="share-btn twitter-btn" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" class="share-btn googleplus-btn" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" class="share-btn facebook-btn" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i></a>
+    <a href="http://v.t.sina.com.cn/share/share.php?title={{ site.url }}{{ page.url }}" class="share-btn weibo-btn" title="Share on Sina Weibo"><i class="fa fa-fw fa-weibo" aria-hidden="true"></i></a>
 </div>
+{% endif %}
+ -->

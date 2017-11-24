@@ -1,64 +1,70 @@
-/**
- * Main JS file for Casper behaviours
+/* 
+* Scroll to the top
+*/
+
+$(window).bind("scroll",display);
+function display () {
+    if($(document).scrollTop()>300) {
+        //$("#top").show();
+		$("#top").fadeIn(300);
+    }else {
+        //$("#top").hide();
+		$("#top").fadeOut(300);
+    }
+}
+
+/* 
+* Tab of posts
+*/
+$(document).ready(function () {
+	var tabContainer = $(".posts-tabs");
+	if (tabContainer.length) {
+		$(".tab-two").bind("click", showTabTwo);
+		$(".tab-one").bind("click", showTabOne);
+	}
+	function showTabOne () {
+		$(".tab-one").addClass("active");
+		$(".tab-two").removeClass("active");
+		$(".tab-two-list").addClass("tab-hidden");
+		$(".tab-one-list").removeClass("tab-hidden");
+		$(".page-holder-two").addClass("tab-hidden");
+		$(".page-holder-one").removeClass("tab-hidden");
+	}
+	function showTabTwo () {
+		$(".tab-two").addClass("active");
+		$(".tab-one").removeClass("active");
+		$(".tab-one-list").addClass("tab-hidden");
+		$(".tab-two-list").removeClass("tab-hidden");
+		$(".page-holder-one").addClass("tab-hidden");
+		$(".page-holder-two").removeClass("tab-hidden");
+	}
+})
+
+/*
+ * Pagination
  */
-
-/*globals jQuery, document */
-(function ($) {
-    "use strict";
-
-    $(document).ready(function () {
-
-        // Tooltip init
-        tooltipInit();
-
-        // Init the posts
-        postInit();
-
-        // Waypoints
-        waypointsInit();
-
-    });
-
-    // Init waypoints for header and footer animations
-    function waypointsInit() {
-
-        var headerWaypoint = new Waypoint({
-            element: document.getElementById('masthead'),
-            handler: function (direction) {
-                if (direction === 'down')
-                    this.element.classList.remove('animation-on');
-                else
-                    this.element.classList.add('animation-on');
-            },
-            offset: -5
-        });
-
-        var footerWaypoint = new Waypoint({
-            element: document.getElementById('footer'),
-            handler: function (direction) {
-                this.element.classList.toggle('animation-on');
-            },
-            offset: 'bottom-in-view'
-        });
-
-    }
-
-    // Init bootstrap tooltip
-    function tooltipInit() {
-        $('[data-toggle]').tooltip();
-    }
-
-    function postInit() {
-        // Set lead paragraphs
-        $('.post-body p:first-child').addClass('lead');
-
-        // Set feature image
-        var featured = $('.featured-image').find('img').attr('src');
-        if (featured) {
-            $('#masthead').css('backgroundImage', 'url(' + featured + ')');
-            $('#footer').css('backgroundImage', 'url(' + featured + ')');
-        };
-    }
-
-} (jQuery));
-
+$(function(){
+  /* initiate the plugin */
+  $("div.page-holder-one").jPages({
+      containerID  : "pag-itemContainer-one",
+      previous: "«",
+      next: "»",
+      perPage      : 5,  /* num of items per page */
+      startPage    : 1,
+      startRange   : 1,
+      midRange     : 4,
+      endRange     : 1,
+      direction    : "auto"
+  });
+  $("div.page-holder-two").jPages({
+      containerID  : "pag-itemContainer-two",
+      previous: "«",
+      next: "»",
+      perPage      : 5,  /* num of items per page */
+      startPage    : 1,
+      startRange   : 1,
+      midRange     : 4,
+      endRange     : 1,
+      direction    : "auto"
+  });
+});
