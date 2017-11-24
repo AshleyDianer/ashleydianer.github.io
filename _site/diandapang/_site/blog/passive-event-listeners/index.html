@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ice Bear Jekyll Theme</title>
-  <meta name="description" content="This is my first jekyll theme and this article describes how to use it.">
+  <title>不得不说的 Passive Event Listeners</title>
+  <meta name="description" content="被报了一个大 Bug，起初以为是 iScroll 的锅，意外发现是自己忽略了 Passive Event Listeners 这个东东...">
 
   <link rel="stylesheet" href="/diandapang/assets/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/blog/ice-bear-jekyll-theme/">
-  <link rel="alternate" type="application/rss+xml" title="挠头熊的博客" href="http://localhost:4000/feed.xml">
+  <link rel="canonical" href="/diandapang/blog">
+  <link rel="alternate" type="application/rss+xml" title="挠头熊的博客" href="/diandapang/feed.xml">
   <script src="/diandapang/assets/js/jquery-1.8.2.min.js"></script>
   <script src="/diandapang/assets/js/jPages.js"></script>
   <script src="/diandapang/assets/js/script.js"></script>
@@ -81,147 +81,73 @@
 			<section style="padding-bottom: 0">
 		<article class="wrapper">
 			<div class="post-header">
-			<h2 class="red-title" >Ice Bear Jekyll Theme</h2>
+			<h2 class="red-title" >不得不说的 Passive Event Listeners</h2>
 			<ul class="tags">
 				
-				<li><a href="/tags#EN">EN</a></li>
-				
-				
-				<li><a href="/tags#jekyll">jekyll</a></li>
+				<li><a href="/tags#CN">CN</a></li>
 				
 				
 				<li><a href="/tags#front-end">front-end</a></li>
 				
 				
+				<li><a href="/tags#Mobile">Mobile</a></li>
+				
+				
 			</ul>
-			<div class="line-highlight">03 Oct 2016</div>
+			<div class="line-highlight">30 Jun 2017</div>
 			</div>
 			<div class="post-content">
-				<p>This is my first jekyll theme decorated by my favorite items – blue and ice bear. It’s welcomed to give me a star at github if you like it.</p>
+				<p>之前用 iScroll 做了一个图片墙，在部分 Android 机上会出现滑动时无法切换整张图片的问题，通过添加如下代码解决了该问题:</p>
 
-<p><a class="github-button" href="https://github.com/songkong/Blog/tree/gh-pages" data-count-href="/songkong/Blog/stargazers" data-count-api="/repos/songkong/Blog#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star songkong/Blog on GitHub">Star</a></p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'touchmove'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">);</span></code></pre></figure>
 
-<h1 id="installation">Installation</h1>
-<hr />
+<p>最近又被报了同样的 Bug，明明之前修复过呀，怎么又复现了，百思不得其解！拿着真机调试，发现控制台给了个 Warning，提示<code class="highlighter-rouge">Passvie Event Listeners</code>新特性。这是个什么东西呢？</p>
 
-<ul>
-  <li>Fork the repository. <a class="github-button" href="https://github.com/songkong/Blog/fork" data-count-href="/songkong/Blog/network" data-count-api="/repos/songkong/Blog#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork songkong/Blog on GitHub">Fork</a></li>
-  <li>Edit <code class="highlighter-rouge">_config.yml</code> file.</li>
-  <li>Add your own <code class="highlighter-rouge">projects</code> in <code class="highlighter-rouge">_includes/projects.html</code>.</li>
-  <li>Change <code class="highlighter-rouge">domain name</code> in <code class="highlighter-rouge">CNAME</code>.</li>
-  <li>Replace <code class="highlighter-rouge">favicon.ico</code> with your website icon.</li>
-  <li>Change <code class="highlighter-rouge">avatar.jpg</code> and <code class="highlighter-rouge">cartoon-avatar.jpg</code> in <code class="highlighter-rouge">assets/images</code>.</li>
-  <li>Edit <code class="highlighter-rouge">LICENSE.md</code> and <code class="highlighter-rouge">README.md</code>.</li>
-</ul>
+<p>其实它已经有一段时间了，关注<code class="highlighter-rouge">2016 Google I/O Mobile Talk</code>的同学应该有些印象。它能够提升页面的滑动流畅度，以下是官方说明：</p>
 
 <blockquote>
-  <p>I use two categories for posts in my blog, <code class="highlighter-rouge">Tech</code> and <code class="highlighter-rouge">Life</code>. If you want to add other categories, remember to modify <code class="highlighter-rouge">_includes/post-list-pagination</code>, <code class="highlighter-rouge">_layouts/post-list.html</code> and <code class="highlighter-rouge">assets/js/script.js</code> to add <code class="highlighter-rouge">Tabs</code> and <code class="highlighter-rouge">Paginations</code> for every category posts.</p>
+  <p>A new feature in the DOM spec that enable developers to opt-in to better scroll performance by eliminating the need for scrolling to block on touch and wheel event listeners.</p>
+
+  <p>Developers can annotate touch and wheel listeners with {passive: true} to indicate that they will never invoke preventDefault.</p>
 </blockquote>
 
-<h1 id="style-test">Style test</h1>
-<hr />
-
-<p><em>italic</em>. <strong>bold</strong>. <strong><em>italic and bold</em></strong>. <del>delete line</del>. <a href="http://kongsong.me">link</a>.</p>
-
-<h1 id="heading-1">Heading 1</h1>
-
-<h2 id="heading-2">Heading 2</h2>
-
-<h3 id="heading-3">Heading 3</h3>
-
-<h4 id="heading-4">Heading 4</h4>
-
-<h5 id="heading-5">Heading 5</h5>
-
-<h6 id="heading-6">Heading 6</h6>
+<p>翻译过来大概就是：</p>
 
 <blockquote>
-  <h3 id="heading-3-in-blockquotes">Heading 3 in Blockquotes</h3>
-  <p>Normal Blockquotes text.</p>
-
-  <ul>
-    <li>Unordered List in Blockquotes.</li>
-  </ul>
-
-  <ol>
-    <li>Ordered List in Blockquotes.</li>
-  </ol>
+  <p>在监听<code class="highlighter-rouge">mousewheel</code>或者<code class="highlighter-rouge">touch</code>事件中，增加了<code class="highlighter-rouge">passive</code>这个设置，当它为<code class="highlighter-rouge">true</code>时，就表示事件处理程序不会调用<code class="highlighter-rouge">preventDefault</code>来阻止默认行为。</p>
 </blockquote>
 
-<ul>
-  <li>Unordered List.
-    <ul>
-      <li>Unordered List.</li>
-    </ul>
-  </li>
-</ul>
+<p>举个例子，如果我们在 touchmove 事件调用 preventDefault，这时会禁止浏览器默认行为，页面不会滚动或缩放。浏览器无法预先知道一个监听器会不会调用 preventDefault()，它需要等监听器执行完后，再去执行默认行为，而监听器执行是要耗时的，这样就会导致页面卡顿。如果 Web 开发者能够提前告诉浏览器监听器不会调用 preventDefault 函数来阻止默认行为，那么浏览器就能快速生成事件，从而提升页面性能。passive 由此而生，我们可以通过传递 passive 为 true 来明确告诉浏览器，事件处理程序不会调用 preventDefault 来阻止默认滑动行为。</p>
 
-<ol>
-  <li>Ordered List
-    <ol>
-      <li>Ordered List</li>
-      <li>Ordered List</li>
-    </ol>
-  </li>
-  <li>Ordered List</li>
-</ol>
+<p>该特性兼容<code class="highlighter-rouge">Chrome 51</code>和<code class="highlighter-rouge">Firefox 49</code>开始的浏览器，默认设置为<code class="highlighter-rouge">true</code>，此时<code class="highlighter-rouge">event.cancelable</code>为<code class="highlighter-rouge">false</code>。因此，可以使用如下代码告诉浏览器，监听器会使用<code class="highlighter-rouge">preventDefault</code>函数：</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="sr">//</span> <span class="no">Ruby</span> <span class="n">codes</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'touchmove'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+<span class="p">},</span> <span class="p">{</span><span class="na">passive</span><span class="p">:</span> <span class="kc">false</span><span class="p">});</span></code></pre></figure>
 
-<span class="nb">require</span> <span class="s1">'parallel'</span>
-
-<span class="no">Parallel</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="n">lots_of_data</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">chunk</span><span class="o">|</span>
-  <span class="n">heavy_computation</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
-<span class="k">end</span></code></pre></figure>
-
-<table>
-  <thead>
-    <tr>
-      <th>table</th>
-      <th>table</th>
-      <th>table</th>
-      <th>table</th>
-      <th>table</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>This is table</td>
-      <td>This is table</td>
-      <td>This is table</td>
-      <td>This is table</td>
-      <td>This is table</td>
-    </tr>
-    <tr>
-      <td>This is table</td>
-      <td>This is table</td>
-      <td>This is table</td>
-      <td>This is table</td>
-      <td>This is table</td>
-    </tr>
-  </tbody>
-</table>
-
+<p>至此，iScroll 的轮播问题就解决啦。</p>
 
 			</div>
 			
 <div class="post-pagination">
   
-  <a href="/blog/javascript-reading-notes/" class="btn-pagination prev" title="学习笔记之《JavaScript 高级程序设计》（上篇）
+  <a href="/diandapang/_site/blog/pocket-weather/" class="btn-pagination prev" title="口袋天气微信小程序开发总结
 "><i class="fa fa-angle-double-left" aria-hidden="true"></i> Prev</a>
   
   
-  <a href="/blog/photo-mask/" class="btn-pagination next" title="CSS 实现移动端图片点击的遮罩效果
+  <a href="/diandapang/_site/blog/meta-viewport/" class="btn-pagination next" title="由移动端 1px 过粗引发的 viewport 探究
 ">Next <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
   
 </div>
 
 			<!-- 
 <div style="margin-top:30px">
-    <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/blog/ice-bear-jekyll-theme/" class="share-btn twitter-btn" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i></a>
-    <a href="https://plus.google.com/share?url=http://localhost:4000/blog/ice-bear-jekyll-theme/" class="share-btn googleplus-btn" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i></a>
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/blog/ice-bear-jekyll-theme/" class="share-btn facebook-btn" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i></a>
-    <a href="http://v.t.sina.com.cn/share/share.php?title=http://localhost:4000/blog/ice-bear-jekyll-theme/" class="share-btn weibo-btn" title="Share on Sina Weibo"><i class="fa fa-fw fa-weibo" aria-hidden="true"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/diandapang/_site/blog/passive-event-listeners/" class="share-btn twitter-btn" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://plus.google.com/share?url=http://localhost:4000/diandapang/_site/blog/passive-event-listeners/" class="share-btn googleplus-btn" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/diandapang/_site/blog/passive-event-listeners/" class="share-btn facebook-btn" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i></a>
+    <a href="http://v.t.sina.com.cn/share/share.php?title=http://localhost:4000/diandapang/_site/blog/passive-event-listeners/" class="share-btn weibo-btn" title="Share on Sina Weibo"><i class="fa fa-fw fa-weibo" aria-hidden="true"></i></a>
 </div>
 
  -->

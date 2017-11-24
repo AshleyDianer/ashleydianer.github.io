@@ -5,8 +5,8 @@
     <description>都说了我什么也不知道。</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 24 Nov 2017 08:23:39 -0800</pubDate>
-    <lastBuildDate>Fri, 24 Nov 2017 08:23:39 -0800</lastBuildDate>
+    <pubDate>Fri, 24 Nov 2017 08:47:04 -0800</pubDate>
+    <lastBuildDate>Fri, 24 Nov 2017 08:47:04 -0800</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
     
       <item>
@@ -158,8 +158,8 @@
 &lt;p&gt;&lt;a href=&quot;https://www.quirksmode.org/blog/archives/2012/07/more_about_devi.html&quot;&gt;5. More about devicePixelRatio&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 26 Jul 2017 02:31:30 -0700</pubDate>
-        <link>http://localhost:4000/blog/meta-viewport/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/meta-viewport/</guid>
+        <link>http://localhost:4000/diandapang/_site/blog/meta-viewport/</link>
+        <guid isPermaLink="true">http://localhost:4000/diandapang/_site/blog/meta-viewport/</guid>
         
         <category>CN</category>
         
@@ -209,8 +209,8 @@
 &lt;p&gt;至此，iScroll 的轮播问题就解决啦。&lt;/p&gt;
 </description>
         <pubDate>Fri, 30 Jun 2017 19:13:30 -0700</pubDate>
-        <link>http://localhost:4000/blog/passive-event-listeners/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/passive-event-listeners/</guid>
+        <link>http://localhost:4000/diandapang/_site/blog/passive-event-listeners/</link>
+        <guid isPermaLink="true">http://localhost:4000/diandapang/_site/blog/passive-event-listeners/</guid>
         
         <category>CN</category>
         
@@ -302,8 +302,8 @@
 
 </description>
         <pubDate>Mon, 19 Jun 2017 21:00:30 -0700</pubDate>
-        <link>http://localhost:4000/blog/pocket-weather/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/pocket-weather/</guid>
+        <link>http://localhost:4000/diandapang/_site/blog/pocket-weather/</link>
+        <guid isPermaLink="true">http://localhost:4000/diandapang/_site/blog/pocket-weather/</guid>
         
         <category>CN</category>
         
@@ -347,8 +347,8 @@
 &lt;p&gt;我只希望，等我越长越大，也许我有了权利，也许我能够做很多选择，我还能记得这些，记着我爱的、给了我如此美好回忆的这些，时刻不忘初心。&lt;/p&gt;
 </description>
         <pubDate>Mon, 29 May 2017 06:00:30 -0700</pubDate>
-        <link>http://localhost:4000/blog/byr-bbs-memory/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/byr-bbs-memory/</guid>
+        <link>http://localhost:4000/diandapang/_site/blog/byr-bbs-memory/</link>
+        <guid isPermaLink="true">http://localhost:4000/diandapang/_site/blog/byr-bbs-memory/</guid>
         
         <category>CN</category>
         
@@ -443,8 +443,8 @@
 &lt;p&gt;最后，如果你只是想用 Android 或 iPhone 的浏览器看看本地代码的效果，在本地开启一个 server 后，比如&lt;code class=&quot;highlighter-rouge&quot;&gt;localhost:8080&lt;/code&gt;，在手机浏览器中将&lt;code class=&quot;highlighter-rouge&quot;&gt;localhost&lt;/code&gt;替换成电脑的 IP 地址即可看到本地的页面啦。&lt;/p&gt;
 </description>
         <pubDate>Thu, 18 May 2017 02:00:30 -0700</pubDate>
-        <link>http://localhost:4000/blog/web-debug-in-mobile/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/web-debug-in-mobile/</guid>
+        <link>http://localhost:4000/diandapang/_site/blog/web-debug-in-mobile/</link>
+        <guid isPermaLink="true">http://localhost:4000/diandapang/_site/blog/web-debug-in-mobile/</guid>
         
         <category>CN</category>
         
@@ -619,8 +619,8 @@
 
 </description>
         <pubDate>Sun, 07 May 2017 00:00:30 -0700</pubDate>
-        <link>http://localhost:4000/blog/sql-notes/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/sql-notes/</guid>
+        <link>http://localhost:4000/diandapang/_site/blog/sql-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/diandapang/_site/blog/sql-notes/</guid>
         
         <category>CN</category>
         
@@ -913,8 +913,8 @@
 
 </description>
         <pubDate>Fri, 21 Apr 2017 05:00:30 -0700</pubDate>
-        <link>http://localhost:4000/blog/fe-optimizing/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/fe-optimizing/</guid>
+        <link>http://localhost:4000/diandapang/_site/blog/fe-optimizing/</link>
+        <guid isPermaLink="true">http://localhost:4000/diandapang/_site/blog/fe-optimizing/</guid>
         
         <category>CN</category>
         
@@ -968,8 +968,8 @@ y = ln(tan(45° + Φ/2))&lt;/p&gt;
 
 </description>
         <pubDate>Tue, 18 Apr 2017 05:00:30 -0700</pubDate>
-        <link>http://localhost:4000/blog/mercator-and-lonlat/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/mercator-and-lonlat/</guid>
+        <link>http://localhost:4000/diandapang/_site/blog/mercator-and-lonlat/</link>
+        <guid isPermaLink="true">http://localhost:4000/diandapang/_site/blog/mercator-and-lonlat/</guid>
         
         <category>CN</category>
         
@@ -1096,8 +1096,8 @@ y = ln(tan(45° + Φ/2))&lt;/p&gt;
 
 </description>
         <pubDate>Thu, 30 Mar 2017 20:00:30 -0700</pubDate>
-        <link>http://localhost:4000/blog/mobile-slide-plugin/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/mobile-slide-plugin/</guid>
+        <link>http://localhost:4000/diandapang/_site/blog/mobile-slide-plugin/</link>
+        <guid isPermaLink="true">http://localhost:4000/diandapang/_site/blog/mobile-slide-plugin/</guid>
         
         <category>CN</category>
         
@@ -1207,8 +1207,8 @@ y = ln(tan(45° + Φ/2))&lt;/p&gt;
 &lt;p&gt;以上就是实现 Web 调起 App 的整个过程，正式的代码需要调整顺序，比如先做 IOS 9 和 10 的处理，这里就不赘述了。&lt;/p&gt;
 </description>
         <pubDate>Mon, 13 Mar 2017 21:00:30 -0700</pubDate>
-        <link>http://localhost:4000/blog/web-call-app/</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/web-call-app/</guid>
+        <link>http://localhost:4000/diandapang/_site/blog/web-call-app/</link>
+        <guid isPermaLink="true">http://localhost:4000/diandapang/_site/blog/web-call-app/</guid>
         
         <category>CN</category>
         

@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>不得不说的 Passive Event Listeners</title>
-  <meta name="description" content="被报了一个大 Bug，起初以为是 iScroll 的锅，意外发现是自己忽略了 Passive Event Listeners 这个东东...">
+  <title>基于 JS 的移动端滑动插件对比</title>
+  <meta name="description" content="对比分析了目前几个主流的 JS 移动端滑动插件。">
 
   <link rel="stylesheet" href="/diandapang/assets/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/blog/passive-event-listeners/">
-  <link rel="alternate" type="application/rss+xml" title="挠头熊的博客" href="http://localhost:4000/feed.xml">
+  <link rel="canonical" href="/diandapang/blog">
+  <link rel="alternate" type="application/rss+xml" title="挠头熊的博客" href="/diandapang/feed.xml">
   <script src="/diandapang/assets/js/jquery-1.8.2.min.js"></script>
   <script src="/diandapang/assets/js/jPages.js"></script>
   <script src="/diandapang/assets/js/script.js"></script>
@@ -81,7 +81,7 @@
 			<section style="padding-bottom: 0">
 		<article class="wrapper">
 			<div class="post-header">
-			<h2 class="red-title" >不得不说的 Passive Event Listeners</h2>
+			<h2 class="red-title" >基于 JS 的移动端滑动插件对比</h2>
 			<ul class="tags">
 				
 				<li><a href="/tags#CN">CN</a></li>
@@ -93,61 +93,146 @@
 				<li><a href="/tags#Mobile">Mobile</a></li>
 				
 				
+				<li><a href="/tags#Plugin">Plugin</a></li>
+				
+				
+				<li><a href="/tags#JavaScript">JavaScript</a></li>
+				
+				
 			</ul>
-			<div class="line-highlight">30 Jun 2017</div>
+			<div class="line-highlight">30 Mar 2017</div>
 			</div>
 			<div class="post-content">
-				<p>之前用 iScroll 做了一个图片墙，在部分 Android 机上会出现滑动时无法切换整张图片的问题，通过添加如下代码解决了该问题:</p>
+				<p>之前开发一个移动端的图片墙功能，需要实现图片的滑动、缩放功能，因此研究了一下目前比较流行的几个开源插件，这里总结一下。</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'touchmove'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-<span class="p">},</span> <span class="kc">false</span><span class="p">);</span></code></pre></figure>
+<ul>
+  <li>TouchSlide</li>
+  <li>FlexSlider</li>
+  <li>Swiper</li>
+  <li>iScroll</li>
+  <li>iSlider</li>
+</ul>
 
-<p>最近又被报了同样的 Bug，明明之前修复过呀，怎么又复现了，百思不得其解！拿着真机调试，发现控制台给了个 Warning，提示<code class="highlighter-rouge">Passvie Event Listeners</code>新特性。这是个什么东西呢？</p>
+<p>在选择插件的时候，主要考虑三方面因素：</p>
 
-<p>其实它已经有一段时间了，关注<code class="highlighter-rouge">2016 Google I/O Mobile Talk</code>的同学应该有些印象。它能够提升页面的滑动流畅度，以下是官方说明：</p>
+<ul>
+  <li>因为是移动端，插件大小尽可能小，节省流量。</li>
+  <li>API 足够丰富，能够满足基本开发需求。</li>
+  <li>移动端流畅度较好。</li>
+</ul>
 
-<blockquote>
-  <p>A new feature in the DOM spec that enable developers to opt-in to better scroll performance by eliminating the need for scrolling to block on touch and wheel event listeners.</p>
+<h4 id="各插件基本介绍">各插件基本介绍</h4>
 
-  <p>Developers can annotate touch and wheel listeners with {passive: true} to indicate that they will never invoke preventDefault.</p>
-</blockquote>
+<hr />
 
-<p>翻译过来大概就是：</p>
+<table>
+  <thead>
+    <tr>
+      <th>插件名</th>
+      <th>相关链接</th>
+      <th>主要功能</th>
+      <th>优点</th>
+      <th>缺点</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TouchSlide</td>
+      <td><a href="http://www.superslide2.com/TouchSlide/param.html">Link</a></td>
+      <td>触屏焦点图、触屏Tab切换、触屏多图切换</td>
+      <td>体积小、专为移动端设计</td>
+      <td>仅支持两个回调函数</td>
+    </tr>
+    <tr>
+      <td>FlexSlider</td>
+      <td><a href="https://woocommerce.com/flexslider/">Link</a></td>
+      <td>图片轮播效果、焦点图效果、图文混排滚动</td>
+      <td>体积较小</td>
+      <td>API 比 TouchSlider 丰富，但也比较少</td>
+    </tr>
+    <tr>
+      <td>Swiper</td>
+      <td><a href="http://www.swiper.com.cn/api/index.html">Link</a></td>
+      <td>触屏焦点图、触屏Tab切换、触屏多图切换</td>
+      <td>API 丰富、自带放大功能</td>
+      <td>体积过大</td>
+    </tr>
+    <tr>
+      <td>iScroll</td>
+      <td><a href="http://cubiq.org/iscroll-5">Link</a></td>
+      <td>CSS 动画、缩放、拉动刷新、捕捉元素</td>
+      <td>体积小、API 丰富</td>
+      <td>Android 中端机中，提供的部分参数值不准确</td>
+    </tr>
+    <tr>
+      <td>iSlider</td>
+      <td><a href="http://be-fe.github.io/iSlider/demo/">Link</a></td>
+      <td>图片和 DOM 的滑动、可自定义插件</td>
+      <td>体积较小、API 丰富</td>
+      <td>需要额外引入 CSS 文件</td>
+    </tr>
+  </tbody>
+</table>
 
-<blockquote>
-  <p>在监听<code class="highlighter-rouge">mousewheel</code>或者<code class="highlighter-rouge">touch</code>事件中，增加了<code class="highlighter-rouge">passive</code>这个设置，当它为<code class="highlighter-rouge">true</code>时，就表示事件处理程序不会调用<code class="highlighter-rouge">preventDefault</code>来阻止默认行为。</p>
-</blockquote>
+<h4 id="各插件缩放对比">各插件缩放对比</h4>
 
-<p>举个例子，如果我们在 touchmove 事件调用 preventDefault，这时会禁止浏览器默认行为，页面不会滚动或缩放。浏览器无法预先知道一个监听器会不会调用 preventDefault()，它需要等监听器执行完后，再去执行默认行为，而监听器执行是要耗时的，这样就会导致页面卡顿。如果 Web 开发者能够提前告诉浏览器监听器不会调用 preventDefault 函数来阻止默认行为，那么浏览器就能快速生成事件，从而提升页面性能。passive 由此而生，我们可以通过传递 passive 为 true 来明确告诉浏览器，事件处理程序不会调用 preventDefault 来阻止默认滑动行为。</p>
+<hr />
 
-<p>该特性兼容<code class="highlighter-rouge">Chrome 51</code>和<code class="highlighter-rouge">Firefox 49</code>开始的浏览器，默认设置为<code class="highlighter-rouge">true</code>，此时<code class="highlighter-rouge">event.cancelable</code>为<code class="highlighter-rouge">false</code>。因此，可以使用如下代码告诉浏览器，监听器会使用<code class="highlighter-rouge">preventDefault</code>函数：</p>
+<p>由于<code class="highlighter-rouge">TouchSlide</code>和<code class="highlighter-rouge">FlexSlider</code>支持回调函数过少、本身无缩放功能，这里不再讨论这两个插件。</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'touchmove'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-<span class="p">},</span> <span class="p">{</span><span class="na">passive</span><span class="p">:</span> <span class="kc">false</span><span class="p">});</span></code></pre></figure>
+<table>
+  <thead>
+    <tr>
+      <th>插件名</th>
+      <th>所需文件</th>
+      <th>文件大小</th>
+      <th>缩放存在的问题</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Swiper</td>
+      <td>swiper.min.js, swiper.min.css</td>
+      <td>94.2KB + 17.3KB</td>
+      <td>放大后，无法移动到屏幕之外的地方</td>
+    </tr>
+    <tr>
+      <td>iScroll</td>
+      <td>iscroll-zoom.js</td>
+      <td>58.4KB</td>
+      <td>图片滑动需设置屏幕捕捉，当前图片放大后，滑动一下，会出现两张图片各占屏幕一半的情况</td>
+    </tr>
+    <tr>
+      <td>iSlider</td>
+      <td>slider.min.js, slider.min.css</td>
+      <td>20.5KB + 1.5KB</td>
+      <td>第一次放大后，继续放大灵敏度低</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>至此，iScroll 的轮播问题就解决啦。</p>
+<p>总结：个人比较倾向<code class="highlighter-rouge">iScroll</code>和<code class="highlighter-rouge">iSlider</code>两个插件，但这些插件在缩放上的交互与原生相差较大，还需继续努力。</p>
+
 
 			</div>
 			
 <div class="post-pagination">
   
-  <a href="/blog/pocket-weather/" class="btn-pagination prev" title="口袋天气微信小程序开发总结
+  <a href="/diandapang/_site/blog/web-call-app/" class="btn-pagination prev" title="JS 实现页面调起原生 APP
 "><i class="fa fa-angle-double-left" aria-hidden="true"></i> Prev</a>
   
   
-  <a href="/blog/meta-viewport/" class="btn-pagination next" title="由移动端 1px 过粗引发的 viewport 探究
+  <a href="/diandapang/_site/blog/mercator-and-lonlat/" class="btn-pagination next" title="JS 实现墨卡托坐标到经纬度坐标的转换
 ">Next <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
   
 </div>
 
 			<!-- 
 <div style="margin-top:30px">
-    <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/blog/passive-event-listeners/" class="share-btn twitter-btn" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i></a>
-    <a href="https://plus.google.com/share?url=http://localhost:4000/blog/passive-event-listeners/" class="share-btn googleplus-btn" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i></a>
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/blog/passive-event-listeners/" class="share-btn facebook-btn" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i></a>
-    <a href="http://v.t.sina.com.cn/share/share.php?title=http://localhost:4000/blog/passive-event-listeners/" class="share-btn weibo-btn" title="Share on Sina Weibo"><i class="fa fa-fw fa-weibo" aria-hidden="true"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/diandapang/_site/blog/mobile-slide-plugin/" class="share-btn twitter-btn" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://plus.google.com/share?url=http://localhost:4000/diandapang/_site/blog/mobile-slide-plugin/" class="share-btn googleplus-btn" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/diandapang/_site/blog/mobile-slide-plugin/" class="share-btn facebook-btn" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i></a>
+    <a href="http://v.t.sina.com.cn/share/share.php?title=http://localhost:4000/diandapang/_site/blog/mobile-slide-plugin/" class="share-btn weibo-btn" title="Share on Sina Weibo"><i class="fa fa-fw fa-weibo" aria-hidden="true"></i></a>
 </div>
 
  -->
