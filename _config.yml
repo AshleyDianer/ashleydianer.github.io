@@ -6,7 +6,7 @@ url: /diandapang
 rss_url: /feed.xml
 
 # Jekyll
-permalink:          /diandapang/blog/:title/
+permalink:          /diandapang/_site/blog/:title/
 markdown:           kramdown
 highlighter:        rouge
 kramdown:
